@@ -30,6 +30,7 @@ int main(){
     char message[100];
     while(1){
         std::cout << "Enter message:\n";
+        memset(message,0,sizeof(message));//一定要清空
         std::cin >> message;
         if(send(sock,message,strlen(message),0) == -1){
             
