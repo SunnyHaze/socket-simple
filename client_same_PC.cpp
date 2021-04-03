@@ -5,8 +5,8 @@
 #include <arpa/inet.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
-#define DEST_IP "192.168.3.10"
-#define DEST_PORT 20800
+#define DEST_IP "127.0.0.1"
+#define DEST_PORT 4001
 #include <iostream>
 int main(){
     int sock = socket(AF_INET,SOCK_STREAM,0);
@@ -18,11 +18,11 @@ int main(){
     struct sockaddr_in dest_addr;
     memset(&dest_addr,0,sizeof(dest_addr));
     dest_addr.sin_family = AF_INET;
-    dest_addr.sin_addr.s_addr = inet_addr(DEST_IP);
-    dest_addr.sin_port = htons(DEST_PORT);
+    dest_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
+    dest_addr.sin_port = htons(1234);
 
     //Á´½Ó·þÎñ¶Ë
-    if(connect(sock,(sockaddr*)&dest_addr,sizeof(sockaddr) == -1)){
+    if(connect(sock,(sockaddr*)&dest_addr,sizeof(dest_addr)) == -1){
         printf("Connect Faild!");
         return 1;
     }

@@ -22,7 +22,7 @@ int main()
     sockaddr_in sockAddr;
     memset(&sockAddr,0,sizeof(sockAddr));
 
-    sockAddr.sin_addr.s_addr = inet_addr("192.168.3.10");//这个是自动调用本机的设置
+    sockAddr.sin_addr.s_addr = inet_addr("127.0.0.1");//这个是自动调用本机的设置
     // inet_addr已经是网络字节格式。
     //自行设置用这种方式：inet_addr("192.168.3.10")
     if(sockAddr.sin_addr.s_addr == -1){
