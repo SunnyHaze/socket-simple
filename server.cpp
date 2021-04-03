@@ -63,6 +63,7 @@ int main()
     int read_size;
     while( (read_size = recv(client_sock,client_message,sizeof(client_message),0) )> 0 ){
         std::cout << client_message << std::endl;
+        memset(client_message,0,sizeof(client_message));
     }
     if(read_size == 0){
         std::cout << "Client disconnected" << std::endl;
